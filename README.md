@@ -242,18 +242,6 @@ GitHub Pages **同一個自訂網域只能被一個 repo 綁定**，所以兩邊
 **同步內容到正式站時，絕對不要把「刪除 CNAME」那筆帶過去**，否則正式站會立刻失去自訂網域。
 安全作法是只 cherry-pick 內容變更，或 merge 後手動確認 `CNAME` 仍在。
 
-### ⚠ robots.txt 也是兩邊分歧的
-
-同理，兩個站的搜尋引擎設定必須相反：
-
-```
-正式站 : Allow: /    （開放收錄，含 Sitemap 指向）
-開發站 : Disallow: / （擋收錄，避免與正式站競爭排名）
-```
-
-**同步到正式站時不要把開發站的 `Disallow: /` 帶過去**，否則正式站會從搜尋結果消失。
-目前需要逐檔留意的分歧檔案共兩個：`CNAME` 與 `robots.txt`。
-
 ### 權限限制
 
 開發站帳號（`Taipei-Tagala-Web`）對正式站只有 **push 權限，沒有 admin**。
@@ -268,106 +256,10 @@ GitHub 會自動依 `CNAME` 檔套用網域。若要改其他 Pages 設定，需
 `taipeitagala.org.tw`（含 www）實測**無法解析**。正式站 CNAME 一度指向它導致對外不通，
 現已改回 `tagala.org.tw`。若社裡有此網域且想做轉址，屬 DNS 層設定，與本 repo 無關。
 
-## 維運手冊
-
-### 兩站拓撲與分歧檔案
-
-| | 開發站 | 正式站 |
-|---|---|---|
-| repo | `Taipei-Tagala-Web/Taipei-Tagala-Web.github.io` | `taipeitagala/taipeitagala.github.io` |
-| 網址 | `taipei-tagala-web.github.io` | **`tagala.org.tw`** |
-| git remote | `origin` | `official` |
-| `CNAME` | **無** | **`tagala.org.tw`** |
-| `robots.txt` | **`Disallow: /`**（擋收錄） | **`Allow: /`**（開放收錄） |
-| 權限 | 擁有者 | 僅 push，**無 admin** |
-
-兩站內容應保持一致，**只有上面兩個設定檔刻意分歧**，同步時不可互相覆蓋。
-
-### 推送到開發站
-
-```bash
-git push origin main
-```
-
-### 推送到正式站（必須 cherry-pick）
-
-直接 `git push official main` 會把「開發站沒有 CNAME」「robots.txt 擋收錄」這兩個狀態
-帶到正式站，導致自訂網域失效、正式站從搜尋結果消失。正確作法：
-
-```bash
-git fetch official
-git switch -c _to_official official/main
-git cherry-pick <內容 commit>          # 可多筆；跳過只動 CNAME/robots.txt 的 commit
-
-# ── 推送前的安全檢查，必做 ──
-git diff --name-only official/main HEAD   # 清單中不可出現 CNAME 或 robots.txt
-cat CNAME                                  # 應為 tagala.org.tw
-grep -E '^(Allow|Disallow):' robots.txt    # 應為 Allow: /
-
-git push official _to_official:main
-git switch main && git branch -D _to_official
-```
-
-若 cherry-pick 的 commit 同時動到內容與分歧檔案，改用：
-先 cherry-pick，再 `git checkout official/main -- CNAME robots.txt` 還原這兩檔。
-
-### 環境陷阱（都實測踩過，會浪費時間）
-
-| 症狀 | 原因與解法 |
-|---|---|
-| `python3` 無反應／跳出 Microsoft Store | 該指令是 Store 轉接程式。**用 `python`**，並帶 `PYTHONIOENCODING=utf-8` |
-| 檢查腳本跳 `UnicodeEncodeError: cp950` | 終端機編碼問題，非腳本壞掉。先設 `PYTHONIOENCODING=utf-8` |
-| 推送後網頁仍是舊版 | GitHub Pages CDN 快取 **10 分鐘**（`Cache-Control: max-age=600`）。Ctrl+F5，或等幾分鐘 |
-| 想確認是否真的部署成功 | 看網頁不可靠，查建置紀錄：<br>`gh api repos/{owner}/{repo}/pages/builds --jq '.[0]'`<br>比對 `commit` 與 `status` 是否為 `built` |
-| 改正式站 Pages 設定回 404 | 帳號對正式站**無 admin**。換網域只能靠「推含 `CNAME` 的 commit ＋ 觸發重建」：<br>`gh api -X POST repos/taipeitagala/taipeitagala.github.io/pages/builds` |
-
-### ⚠ 產生器腳本已遺失
-
-en/ja 共十頁原本是由一支 Python 腳本從 `content/*.json` 產生的，
-但那支腳本**放在暫存目錄，已被系統清除**。現有的 en/ja 頁面是它的產物，
-但**無法再重跑**。
-
-因此目前所有頁面（含中文）都只能手動維護。這就是下節「重建產生器」的真正意義——
-不是最佳化，而是**修復已經失去的能力**。
-
-## 活動時效與重建產生器
-
-### 問題
-
-「近期例會 / 過往活動」的分組**寫死在 HTML 裡**，是產生頁面當下依基準日算出來的，
-時間過了不會自動更新。2026-09-06 就發生過：8/11、8/25 兩場已舉行，
-卻仍掛在「近期例會」，首頁與例會頁還顯示「共 6 場」。
-
-當時是**手動把卡片搬到過往活動**並改掉數字（治標）。
-
-### 每次更新活動時要檢查
-
-1. 對照 `content/events.json` 的 `date` 與今天日期，找出已過期卻仍在「近期例會」的場次
-2. 把該卡片搬到「過往活動」，維持**由近至遠**排序
-3. 更新首頁 `ui.upcomingLede`、例會頁 `ui.sessionsCount` 代入的場次數字
-4. 三語系共 6 個檔案都要改：`{zh-TW,en,ja}/index.html`、`{zh-TW,en,ja}/meetings/index.html`
-
-卡片可直接原封搬移——兩區塊已統一為同一種版型，markup 完全相同，不需改任何屬性。
-
-### 根治作法（建議，尚未實作）
-
-把先前用來產生 en/ja 頁面的腳本**重建為 `tools/build-pages.py` 並納入版控**，
-讓它從 `content/*.json` 重新產生頁面，分類依**執行當下的日期**即時計算。
-
-好處：
-- 活動過期只要重跑一次腳本，不必手動搬卡片、改數字
-- 三語系一次產生，不會漏改某個語系
-- 場次數字自動同步，不會出現「共 6 場」但只列 4 場的矛盾
-
-要注意：中文頁目前是手工維護的，若改由腳本產生，需先確認腳本輸出與現有中文頁一致
-（過去驗證方式是比對 `<main>` 內的區塊結構是否完全相同）。
-
 ## 待確認
 
-- **把產生器重建為 `tools/build-pages.py`**，讓活動分類依執行當日重算，
-  不必每次手動搬卡片（見上節「活動時效與重建產生器」）
 - 社徽反白版本（Brand Center 產生）
-- 過往活動 7 筆的日期與標題（目前 `events.json` 有 7/14、7/28、8/11、8/25 四場）
+- 過往活動 7 筆的日期與標題（目前 `events.json` 只有 7/14、7/28 兩場）
 - `service.json` 的 `areasOfFocus` 對照
 - `site.json` 中標了 `_verify` 的英日文（圖片 alt、按鈕文字、欄位標籤、
   入社洽詢說明、各頁 SEO 描述），為建站時補寫，需母語人士確認
