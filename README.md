@@ -199,19 +199,14 @@ CSS 與 JS 的手風琴機制已經做好（箭頭旋轉 180°、一次只開一
 
 改網域時只要改上面前四項，站內連結完全不用動。
 
-### 尚未完成的網域設定
+### 網域設定已完成（2026-08-01 確認）
 
-以下是**檔案以外**的事，需要在 GitHub 與 DNS 端操作，改檔案不會自動生效：
+- 正式網址拍板為 apex `tagala.org.tw`（不用 www）
+- `CNAME` 檔已設定為 `tagala.org.tw`
+- Settings → Pages 確認無網域衝突警告
+- `www.tagala.org.tw` 已自動 301 轉到 `tagala.org.tw`（GitHub Pages 依 `CNAME` 檔自動處理，不需另外設定 DNS 轉向）
 
-1. **這個 repo 沒有 `CNAME` 檔** —— GitHub Pages 要靠它才會用自訂網域服務本 repo
-2. **`tagala.org.tw` 目前指向另一個 repo**（實測只回傳 `Hello! World!` 佔位頁），
-   要先把該站的自訂網域移除，否則同一網域會被兩個 repo 搶用
-3. **`tagala.org.tw` 會 301 轉到 `www.tagala.org.tw`** ——
-   要確認最終正式網址是 apex 還是 www。目前全站寫的是 apex（無 www），
-   若最後決定用 www，這些絕對網址要再改一次，否則 hreflang 會指向會被轉址的網址
-
-在這三件完成前，網站實際仍只在 `taipei-tagala-web.github.io` 上運作，
-而頁面裡的 hreflang / og:url 會指向尚未生效的 `tagala.org.tw`。
+網站現在已經在 `https://tagala.org.tw` 正式運作，頁面裡的 hreflang / og:url 皆已生效。
 
 ## 待確認
 
