@@ -212,6 +212,15 @@ CSS 與 JS 的手風琴機制已經做好（箭頭旋轉 180°、一次只開一
 
 改網域時只要改上面前四項，站內連結完全不用動。
 
+### 網域設定已完成（2026-08-01 確認）
+
+- 正式網址拍板為 apex `tagala.org.tw`（不用 www）
+- `CNAME` 檔已設定為 `tagala.org.tw`
+- Settings → Pages 確認無網域衝突警告
+- `www.tagala.org.tw` 已自動 301 轉到 `tagala.org.tw`（GitHub Pages 依 `CNAME` 檔自動處理，不需另外設定 DNS 轉向）
+
+網站現在已經在 `https://tagala.org.tw` 正式運作，頁面裡的 hreflang / og:url 皆已生效。
+
 ### 兩個 repo 的分工（2026-08-01 搬遷完成）
 
 | | repo | 網址 | 角色 |
