@@ -139,27 +139,27 @@
       "timeEnd": "21:00",
       "type": "regular",
       "banner": "evt-2026-10-13",
-      "fbUrl": "https://www.facebook.com/events/1522930695512198/",
-      "speaker": { "zh": "Mukesh Kaushik", "en": "Mukesh Kaushik", "ja": "ムケシュ・カウシック" },
+      "fbUrl": "",
+      "speaker": { "zh": "Marcin Jerzewski 葉皓勤", "en": "Marcin Jerzewski 葉皓勤", "ja": "Marcin Jerzewski（葉皓勤）" },
       "speakerTitle": {
-        "zh": "外交部 Taiwan Fellowship 訪問學人；印度《Dainik Bhaskar》資深國防與戰略事務記者",
-        "en": "Taiwan Fellowship visiting scholar, Ministry of Foreign Affairs; Senior defence and strategic affairs correspondent, Dainik Bhaskar (India)",
-        "ja": "外交部 Taiwan Fellowship 招聘研究者、インド紙『Dainik Bhaskar』国防・戦略問題担当シニア記者"
+        "zh": "歐洲價值安全政策中心（European Values Center for Security Policy）在台辦事處主任",
+        "en": "Head of Taiwan Office, European Values Center for Security Policy",
+        "ja": "欧州価値安全政策センター（European Values Center for Security Policy）台湾事務所代表"
       },
       "title": {
-        "zh": "印度與台灣的民主：我們可以互相學習的地方",
-        "en": "India and Taiwan Democracies: Many Lessons to Learn",
-        "ja": "インドと台湾の民主主義——互いに学び合えること"
+        "zh": "在中等強國的時代，理念相近能走多遠？——2026 年台歐關係的現況與展望",
+        "en": "Like-Mindedness in the Middle Power Moment? Taking Stock of Taiwan-Europe Relations in 2026",
+        "ja": "中規模国家の時代に、理念の近さはどこまで有効か？——2026年台湾・欧州関係の現況と展望"
       },
       "summary": {
-        "zh": "每年舉辦外交主題專題演講是本社的重要傳統。本場由擁有 35 年外交與國防採訪經驗的印度資深記者，從印度視角比較兩國民主發展歷程。",
-        "en": "An annual diplomacy talk is one of this club's standing traditions. This session brings an Indian correspondent with 35 years covering diplomacy and defence to compare the democratic paths of both countries.",
-        "ja": "毎年の外交テーマの卓話は、当クラブの大切な伝統です。今回は外交・国防取材35年のインド人記者を迎え、インドの視点から両国の民主化の歩みを比較していただきます。"
+        "zh": "台灣與歐洲經常以「理念相近夥伴」形容彼此。民主、自由、人權等共同價值，確實讓雙方有了合作的基礎；但當價值遇上經濟利益、國內政治變化與對中關係，「理念相近」能不能進一步成為穩定而有韌性的夥伴關係？本次例會邀請歐洲價值安全政策中心在台辦事處主任 Marcin Jerzewski 葉皓勤，從 2026 年的國際局勢出發，帶我們重新檢視臺灣與歐洲的關係。",
+        "en": "Taiwan and Europe often describe each other as \"like-minded partners,\" sharing values such as democracy, freedom and human rights that form a basis for cooperation. But when those values meet economic interests, domestic political shifts and relations with China, can \"like-mindedness\" grow into a stable, resilient partnership? This meeting welcomes Marcin Jerzewski, Head of the Taiwan Office at the European Values Center for Security Policy, to revisit Taiwan-Europe relations from the vantage point of 2026's international landscape.",
+        "ja": "台湾と欧州はしばしば互いを「理念の近いパートナー」と呼びます。民主主義・自由・人権といった共通の価値観は、両者の協力の土台となってきました。しかし、その価値が経済的利益や国内政治の変化、対中関係とぶつかるとき、「理念の近さ」は安定し強靭なパートナーシップへと発展しうるのでしょうか。今回の例会では、欧州価値安全政策センター台湾事務所代表の Marcin Jerzewski（葉皓勤）氏を迎え、2026年の国際情勢を踏まえて台湾と欧州の関係を改めて見つめ直します。"
       },
       "points": {
-        "zh": ["台印關係及交流發展", "台印民主發展歷程的比較", "兩國如何面對外交、國防與社會韌性的共同挑戰"],
-        "en": ["India–Taiwan relations and exchange", "Comparing the two countries' democratic development", "Shared challenges in diplomacy, defence and social resilience"],
-        "ja": ["台印関係と交流の発展", "両国の民主化の歩みの比較", "外交・国防・社会のレジリエンスにおける共通の課題"]
+        "zh": ["台歐關係的現況：地緣競爭加劇之下，中等強國如何深化合作？", "理念相近的現實挑戰：當共同價值遇上經濟利益、國內政治變化與對中關係，「like-mindedness」能發揮多大的作用？", "整合性外交的可能性：從捷克、立陶宛等案例，看臺灣如何結合外交、經濟與社會力量，與歐洲建立更具韌性的夥伴關係。"],
+        "en": ["The state of Taiwan-Europe relations: how can middle powers deepen cooperation amid intensifying geopolitical competition?", "The real-world limits of like-mindedness: how far can shared values go when they meet economic interests, domestic politics and relations with China?", "The potential for integrated diplomacy: lessons from Czechia and Lithuania on building a more resilient Taiwan-Europe partnership across diplomatic, economic and social fronts."],
+        "ja": ["台欧関係の現況——地政学的競争が激化するなか、中規模国家はいかに協力を深められるか", "理念の近さが直面する現実——共通の価値観が経済的利益、国内政治の変化、対中関係とぶつかるとき、「like-mindedness」はどこまで力を発揮できるか", "統合的外交の可能性——チェコやリトアニアの事例から、台湾が外交・経済・社会の力を結びつけ、欧州とより強靭なパートナーシップを築く道を探る"]
       }
     },
     {
