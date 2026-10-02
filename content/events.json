@@ -101,6 +101,37 @@
       }
     },
     {
+      "id": "2026-11-10",
+      "date": "2026-11-10",
+      "timeStart": "18:30",
+      "timeTalk": "19:20",
+      "timeEnd": "21:00",
+      "type": "regular",
+      "banner": "evt-2026-11-10",
+      "fbUrl": "https://www.facebook.com/events/1342503165618131/",
+      "speaker": { "zh": "邵懿文 Freda Shao", "en": "邵懿文 Freda Shao", "ja": "邵懿文（フレダ・シャオ）" },
+      "speakerTitle": {
+        "zh": "電通集團策略創新長",
+        "en": "Chief Strategy and Innovation Officer, Dentsu Group",
+        "ja": "電通グループ チーフ・ストラテジー＆イノベーション・オフィサー"
+      },
+      "title": {
+        "zh": "如果我有一個分身，能為我創造多少時間？",
+        "en": "If I Had a Digital Twin, How Much Time Could It Create for Me?",
+        "ja": "もう一人の自分がいたら、どれだけの時間を生み出せるだろう？"
+      },
+      "summary": {
+        "zh": "如果有一個 AI 分身，可以替你思考、測試、模擬不同人的反應，你會把省下來的時間拿來做什麼？本次例會邀請電通集團策略創新長邵懿文 Freda Shao，從「Creating Time」出發，談 AI 不只是提高效率的工具，也可能改變我們理解消費者、設計產品與規劃服務的方式。",
+        "en": "If an AI twin could think, test and simulate other people's reactions for you, what would you do with the time it freed up? This meeting welcomes Freda Shao, Chief Strategy and Innovation Officer at Dentsu Group, to explore \"Creating Time\" — how AI is not just a tool for efficiency, but a way to rethink how we understand consumers, design products and plan services.",
+        "ja": "AIの分身が思考し、テストし、他者の反応をシミュレートしてくれるとしたら、生まれた時間を何に使いますか？今回の例会では電通グループ チーフ・ストラテジー＆イノベーション・オフィサーの邵懿文（フレダ・シャオ）氏を迎え、「Creating Time」という視点から、AIが効率化の道具であるだけでなく、消費者理解や製品設計、サービス計画の方法そのものを変えうる可能性について語っていただきます。"
+      },
+      "points": {
+        "zh": ["Creating Time｜時間花在哪裡，機會就在哪裡", "AI Persona｜用 AI 分身，看見沒想到的事", "把時間留給人｜AI 省下時間，人創造價值"],
+        "en": ["Creating Time: where time goes is where opportunity lives", "AI Persona: using an AI twin to see what you hadn't noticed", "Leaving time for people: AI saves time, people create value"],
+        "ja": ["Creating Time——時間をどこに使うかが、機会のある場所", "AI Persona——AIの分身で、気づかなかったことを見る", "時間を人に残す——AIが時間を生み、人が価値を創る"]
+      }
+    },
+    {
       "id": "2026-10-27",
       "date": "2026-10-27",
       "timeStart": "18:30",
